@@ -58,16 +58,15 @@ export default function UserTableList() {
       },
       {
         accessorKey: "firstName",
+        accessorFn: (data) => {
+          return [data.firstName, data.lastName].join(",");
+        },
         header: () => "First Name",
+        cell: (props) => {
+          return `${props.row.original.firstName} ${props.row.original.lastName}`;
+        },
         enableSorting: true,
         enableColumnFilter: true,
-        size: 100,
-      },
-      {
-        accessorKey: "lastName",
-        header: () => "Last Name",
-        enableSorting: true,
-        enableGlobalFilter: true,
         size: 100,
       },
       {
@@ -124,6 +123,8 @@ export default function UserTableList() {
         header: () => "Created",
         enableSorting: true,
         enableGlobalFilter: false,
+        cell: (props) =>
+          format(parseISO(props.row.original.createdAt), "MM/dd/yyyy h:mm a"),
         size: 160,
       },
       {
@@ -131,6 +132,8 @@ export default function UserTableList() {
         header: () => "Updated",
         enableSorting: true,
         enableGlobalFilter: false,
+        cell: (props) =>
+          format(parseISO(props.row.original.updatedAt), "MM/dd/yyyy h:mm a"),
         size: 160,
       },
       {
