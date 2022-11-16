@@ -21,6 +21,7 @@ Application use Prisma as ORM so you need to create a migrations/seeds. While in
 
 ```
 npx prisma migrate dev --name "init"
+npm run start:dev
 ```
 
 This should create migrations in database and seed the initial data (100 user records and 2 permissions).
