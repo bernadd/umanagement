@@ -17,4 +17,23 @@ export const GlobalStyles = styled.createGlobalStyle`
     line-height: 1.5;
     background-color: #ebeff3;
   }
+
+  .column {
+    display: flex;
+    align-items: center;
+  }
+
+  .sort-icon {
+    display: flex;
+    align-items: center;
+    align-items: center;
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .select-none {
+    user-select: none;
+  }
 `;
